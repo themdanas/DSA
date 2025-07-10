@@ -1,0 +1,31 @@
+class Solution {
+  public:
+    Node* findFirstNode(Node* head) {
+        // your code here
+        Node* p=head;
+        Node* q=head;
+        
+        while(q && q->next){
+            p=p->next;
+            q=q->next->next;
+            
+           
+            
+            if(p==q){
+                
+                Node* r=head;
+                
+                
+                while(r!=p){
+                    p=p->next;
+                    r=r->next;
+                    
+                }
+                
+                return r;
+            }
+        }
+        
+        return nullptr;
+    }
+};
