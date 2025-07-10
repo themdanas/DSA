@@ -1,0 +1,43 @@
+class Solution {
+  public:
+    Node* sortedMerge(Node* head1, Node* head2) {
+        // code here
+        Node* first=head1;
+        Node* second=head2;
+        Node* third=head1;
+        Node* last=nullptr;
+        
+        if(first->data<second->data){
+            third=last=first;
+            first=first->next;
+            last->next=0;
+        }
+        
+        else{
+            third=last=second;
+            second=second->next;
+            last->next=0;
+        }
+        
+        while(first!=0 && second!=0){
+            if(first->data<second->data){
+                last->next=first;
+                last=first;
+                first=first->next;
+                last->next=0;
+            }
+            
+            else{
+                last->next=second;
+                last=second;
+                second=second->next;
+                last->next=0;
+            }
+        }
+        
+        if(first!=0) last->next=first;
+        else last->next=second;
+        
+        return third;
+    }
+};
