@@ -1,0 +1,53 @@
+class Solution {
+  public:
+  
+    Node *reverse(Node *head){
+        Node* curr=head;
+        Node* prev=nullptr;
+        
+        while(curr){
+            Node* next=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=next;
+        }
+        return prev;
+    }
+    Node *reverseKGroup(Node *head, int k) {
+        // code here
+        if(head==nullptr || k<=1) return head;
+        int index=0;
+        
+        Node* curr=head;
+        
+        while(curr && index<k){
+            curr=curr->next;
+            index++;
+        }
+        
+        if(index==k){
+            
+        
+        
+            Node* prev=nullptr;
+            curr=head;
+            int i=0;
+            
+            while(curr && i<k){
+                Node* next=curr->next;
+                curr->next=prev;
+                prev=curr;
+                curr=next;
+                i++;
+            }
+        
+            
+            head->next=reverseKGroup(curr,k);
+            
+            return prev;
+        
+        }
+        
+        return reverse(head);
+    }
+};
