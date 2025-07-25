@@ -1,0 +1,33 @@
+/*
+
+struct Node
+{
+    int data;
+    struct Node *next;
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+
+*/
+class Solution {
+  public:
+    // Function to check if the linked list has a loop.
+    bool detectLoop(Node* head) {
+        // your code here
+        Node* p;
+        Node* q;
+        
+        p=q=head;
+        
+        while(q!=0 &&q->next!=0){
+            p=p->next;
+            q=q->next->next;
+            
+            if(p==q) return true;
+        
+        }
+        
+        return false;
+    }
+};
