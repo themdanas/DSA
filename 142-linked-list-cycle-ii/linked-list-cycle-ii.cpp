@@ -16,24 +16,18 @@ public:
             p=p->next;
             q=q->next->next;
 
-            
-
             if(p==q){
-                ListNode *start=head;
-                int index=0;
+                ListNode* start=head;
+                
 
                 while(p!=start){
                     start=start->next;
                     p=p->next;
-                    index++;
-                }
 
+                }
                 return p;
             }
-
-
         }
-
         return 0;
     }
 };
